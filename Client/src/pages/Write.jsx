@@ -1,13 +1,69 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import axios from "axios";
+import FormData from "form-data";
+import { useLocation, useNavigate } from "react-router-dom";
+import moment from "moment";
 
 function Write() {
-  const [value, setValue] = useState("");
+  const state = useLocation().state;
+
+  const [value, setValue] = useState(state?.descr || "");
+  const [title, setTitle] = useState(state?.title || "");
+  const [file, setFile] = useState(null);
+  const [cat, setCat] = useState(state?.cat || "");
+
+  const navigate = useNavigate();
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file[0]);
+      const res = await axios.post("/api/upload", formData);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleClick = async (e) => {
+    const imgURL = await upload();
+    //console.log(imgURL);
+    try {
+      state
+        ? await axios.put(`/api/post/${state.id}`, {
+            descr: value,
+            title: title,
+            cat: cat,
+            img: file ? imgURL : "",
+          })
+        : await axios.post("/api/post/", {
+            descr: value,
+            title: title,
+            cat: cat,
+            img: file ? imgURL : "",
+            date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+          });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+    e.preventDefault();
+  };
+
   return (
     <div className="add">
       <div className="content">
-        <input type="text" name="title" placeholder="title" />
+        <input
+          type="text"
+          name="title"
+          value={title}
+          placeholder="title"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
         <div className="editorContainer">
           <ReactQuill
             className="editor"
@@ -28,44 +84,106 @@ function Write() {
             <b>Visibility :</b>
             Public
           </span>
-          <input style={{ display: "none" }} type="file" name="" id="file" />
+          <input
+            style={{ display: "none" }}
+            type="file"
+            name="file"
+            id="file"
+            onChange={(e) => {
+              setFile(e.target.files);
+            }}
+          />
           <label className="file" htmlFor="file">
             Upload Image
           </label>
           <div className="buttons">
             <button>Save as Draft</button>
-            <button>Upload</button>
+            <button onClick={handleClick}>Publish</button>
           </div>
         </div>
         <div className="item">
           <h1>Category</h1>
           <div className="cat">
-            <input type="radio" name="cat" value="art" id="art" />
+            <input
+              type="radio"
+              checked={cat === "art"}
+              name="cat"
+              value="art"
+              id="art"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="art">Art</label>
           </div>
 
           <div className="cat">
-            <input type="radio" name="cat" value="science" id="science" />
+            <input
+              type="radio"
+              checked={cat === "science"}
+              name="cat"
+              value="science"
+              id="science"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="cat">Science</label>
           </div>
 
           <div className="cat">
-            <input type="radio" name="cat" value="technology" id="technology" />
+            <input
+              type="radio"
+              checked={cat === "technology"}
+              name="cat"
+              value="technology"
+              id="technology"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="technology">Technology</label>
           </div>
 
           <div className="cat">
-            <input type="radio" name="cat" value="cinema" id="cinema" />
+            <input
+              type="radio"
+              checked={cat === "cinema"}
+              name="cat"
+              value="cinema"
+              id="cinema"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="cinema">Cinema</label>
           </div>
 
           <div className="cat">
-            <input type="radio" name="cat" value="design" id="design" />
+            <input
+              type="radio"
+              checked={cat === "design"}
+              name="cat"
+              value="design"
+              id="design"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="design">Design</label>
           </div>
 
           <div className="cat">
-            <input type="radio" name="cat" value="food" id="food" />
+            <input
+              type="radio"
+              checked={cat === "food"}
+              name="cat"
+              value="food"
+              id="food"
+              onChange={(e) => {
+                setCat(e.target.value);
+              }}
+            />
             <label htmlFor="food">Food</label>
           </div>
         </div>

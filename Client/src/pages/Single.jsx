@@ -16,7 +16,6 @@ function Single() {
 
   const postId = location.pathname.split("/")[2];
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,10 +38,15 @@ function Single() {
     }
   };
 
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
+
   return (
     <div className="single">
       <div className="content">
-        <img src={post?.postimg} alt="Picture" />
+        <img src={`../upload/${post.postimg}`} alt="Picture" />
         <div className="user">
           {post.userimg && <img src={post.userimg} alt="UserPicture" />}
           <div className="info">
@@ -51,7 +55,7 @@ function Single() {
           </div>
           {currentUser.username === post.username && (
             <div className="edit">
-              <Link to={`/write?edit=2`}>
+              <Link to={`/write?edit=${post.id}`} state={post}>
                 <img
                   src="https://cdn.pixabay.com/photo/2017/06/06/00/33/edit-icon-2375785_1280.png"
                   alt=""
@@ -67,10 +71,10 @@ function Single() {
           )}
         </div>
         <h1>{post.title}</h1>
-        <p>{post.descr}</p>
+        <p>{getText(post.descr)}</p>
       </div>
 
-      <Menu />
+      <Menu cat={post.cat} />
     </div>
   );
 }
