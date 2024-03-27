@@ -14,7 +14,7 @@ const ListItem = ({ index }) => {
   return (
     <div
       className="listItem"
-      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+      style={{ left: isHovered && index * 225 - 50 + index * 5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -27,10 +27,10 @@ const ListItem = ({ index }) => {
           <iframe src={triller}></iframe>
           <div className="itemInfo">
             <div className="icons">
-              <PlayCircle />
-              <Add />
-              <ThumbUpOutlined />
-              <ThumbDownOutlined />
+              <PlayCircle className="icon" />
+              <Add className="icon" />
+              <ThumbUpOutlined className="icon" />
+              <ThumbDownOutlined className="icon" />
             </div>
             <div className="itemInfoTop">
               <span>1 hour 14 mins</span>
@@ -39,9 +39,7 @@ const ListItem = ({ index }) => {
             </div>
             <div className="desc">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero,
-              dolorem omnis enim sit cum rerum vitae molestiae sapiente animi
-              illo eos eaque laboriosam modi ab dolor praesentium beatae quae
-              laudantium.
+              dolorem omnis enim
             </div>
             <div className="genre">Action</div>
           </div>
