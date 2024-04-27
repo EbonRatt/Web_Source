@@ -50,10 +50,10 @@ function Single() {
         <div className="user">
           {post.userimg && <img src={post.userimg} alt="UserPicture" />}
           <div className="info">
-            <span>{post.username}</span>
+            <span>{post?.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username === post.username && (
+          {currentUser?.username === post?.username && (
             <div className="edit">
               <Link to={`/write?edit=${post.id}`} state={post}>
                 <img

@@ -12,7 +12,7 @@ function Navbar() {
           <Link to="/">
             <img
               src={
-                "https://images.indianexpress.com/2016/12/swastika759.jpg?w=414"
+                "https://iconape.com/wp-content/files/my/298667/svg/298667.svg"
               }
               alt="logoPage"
             />
@@ -47,11 +47,13 @@ function Navbar() {
               Login
             </Link>
           )}
-          <span className="write">
-            <Link className="link " to="/write">
-              Write
-            </Link>
-          </span>
+          {currentUser && (
+            <span className="write">
+              <Link className="link " to="/write">
+                Write
+              </Link>
+            </span>
+          )}
         </div>
       </div>
     </div>
