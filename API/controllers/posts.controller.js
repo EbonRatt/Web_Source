@@ -3,8 +3,8 @@ import Jwt from "jsonwebtoken";
 
 const getPosts = async (req, res) => {
   const queryPosts = req.query.cat
-    ? "SELECT * FROM posts WHERE cat=$1"
-    : "SELECT * FROM posts";
+    ? "SELECT * FROM post WHERE cat=$1"
+    : "SELECT * FROM post";
 
   try {
     const { rows } = await db.query(
@@ -19,7 +19,7 @@ const getPosts = async (req, res) => {
 
 const getPost = async (req, res) => {
   const queryPost =
-    "SELECT p.id, username, title, descr,cat,date ,u.img as userimg ,p.img as postimg  from users as u JOIN posts AS p ON u.id = p.uid WHERE p.id = $1";
+    "SELECT p.id, username, title, descr,cat,date ,u.img as userimg ,p.img as postimg  from users as u JOIN post AS p ON u.id = p.uid WHERE p.id = $1";
   try {
     const { rows } = await db.query(queryPost, [req.params.id]);
     return res.status(200).json(rows[0]);
@@ -51,7 +51,7 @@ const addPost = async (req, res) => {
       userInfo.id,
     ];
     db.query(
-      "INSERT INTO posts (title, descr, img, date,cat,uid) VALUES ($1,$2,$3,$4,$5,$6)",
+      "INSERT INTO post (title, descr, img, date,cat,uid) VALUES ($1,$2,$3,$4,$5,$6)",
       [...values],
       (err, data) => {
         if (err) return res.status(500).json(err);
@@ -73,7 +73,7 @@ const deletePost = async (req, res) => {
     //console.log(postId);
     //console.log(userInfo);
     db.query(
-      "Delete from posts where id = $1 and uid = $2",
+      "Delete from post where id = $1 and uid = $2",
       [postId, userInfo.id],
       (err, data) => {
         if (err) return res.status(400).json("You Can delete only your Post");
@@ -100,7 +100,7 @@ const updatePost = async (req, res) => {
     // console.log(postId, userInfo.id);
 
     db.query(
-      "update posts set title = $1, descr = $2, cat = $3 ,img =$4 where id = $5 and uid = $6 ",
+      "update post set title = $1, descr = $2, cat = $3 ,img =$4 where id = $5 and uid = $6 ",
       [
         req.body.title,
         req.body.descr,

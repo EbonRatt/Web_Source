@@ -1,11 +1,11 @@
 import pg from "pg";
 
 const db = new pg.Client({
-  host: "localhost",
-  database: "Blog",
+  host: "rain.db.elephantsql.com",
+  database: "xqcdjfwl",
   port: 5432,
-  user: "postgres",
-  password: "123",
+  user: "xqcdjfwl",
+  password: "vxKwdBuClLkSKTDsrFWCCc4hl8lZyHEJ",
 });
 
 db.connect((err) => {
