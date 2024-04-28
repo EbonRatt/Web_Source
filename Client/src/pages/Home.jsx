@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get(`/api/post/${cat}`);
+        const result = await axios.get(`https://web-source-api.vercel.app/api/post/${cat}`);
         setPosts(result.data);
       } catch (error) {
         console.log(error);
