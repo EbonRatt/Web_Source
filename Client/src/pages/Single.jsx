@@ -19,7 +19,7 @@ function Single() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get(`/api/post/${postId}`);
+        const result = await axios.get(`https://web-source-api.vercel.app/api/post/${postId}`);
         setPost(result.data);
       } catch (error) {
         console.log(error);
@@ -31,7 +31,7 @@ function Single() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/api/post/${postId}`);
+      await axios.delete(`https://web-source-api.vercel.app/api/post/${postId}`);
       navigate("/");
     } catch (error) {
       console.log(error);
