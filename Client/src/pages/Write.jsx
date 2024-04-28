@@ -20,7 +20,7 @@ function Write() {
     try {
       const formData = new FormData();
       formData.append("file", file[0]);
-      const res = await axios.post("/api/upload", formData);
+      const res = await axios.post("https://web-source-api.vercel.app/api/upload", formData);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -32,7 +32,7 @@ function Write() {
     //console.log(imgURL);
     try {
       state
-        ? await axios.put(`/api/post/${state.id}`, {
+        ? await axios.put(`https://web-source-api.vercel.app/api/post/${state.id}`, {
             descr: value,
             title: title,
             cat: cat,
