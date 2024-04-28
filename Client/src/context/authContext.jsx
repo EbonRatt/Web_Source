@@ -9,11 +9,11 @@ const AuthContextProvider = ({ children }) => {
   );
 
   const login = async (input) => {
-    const res = await Axios.post("/api/auth/login", input);
+    const res = await Axios.post("https://web-source-api.vercel.app/api/auth/login", input);
     setCurrentUser(res.data);
   };
   const logout = async () => {
-    await Axios.post("/api/auth/logout");
+    await Axios.post("https://web-source-api.vercel.app/api/auth/logout");
     setCurrentUser(null);
   };
 
