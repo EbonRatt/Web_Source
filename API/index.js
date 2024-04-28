@@ -14,7 +14,7 @@ const port = 8080;
 app.use(
   cors({
     origin: [
-      "https://web-source-client.vercel.app","https://web-source-real-estate-frontend-1gd71z3lw-ebonratts-projects.vercel.app",
+      "https://web-source-client.vercel.app","https://web-source-real-estate-frontend-1gd71z3lw-ebonratts-projects.vercel.app","https://web-source-client-git-webblog-ebonratts-projects.vercel.app"
     ],
     method: ["POST", "GET"],
     credentials: true,
