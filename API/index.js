@@ -11,13 +11,15 @@ import authRoutes from "./routes/auth.routes.js";
 const app = express();
 const port = 8080;
 
-app.use(cors(
-  {
-    origin:["https://web-source-api.vercel.app"],
-    method:["POST","GET"],
-    credentials:true
-  }
-));
+app.use(
+  cors({
+    origin: [
+      "https://web-source-client-paileyzmr-ebonratts-projects.vercel.app",
+    ],
+    method: ["POST", "GET"],
+    credentials: true,
+  })
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
