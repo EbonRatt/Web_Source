@@ -15,6 +15,8 @@ const Navbar = () => {
           <span>Ebon Real Estate</span>
         </a>
         <a href="/">Home</a>
+        <a href="/list">List</a>
+        <a href="/1">SinglePage</a>
         <a href="/">About</a>
         <a href="/">Contact</a>
         <a href="/">Agents</a>

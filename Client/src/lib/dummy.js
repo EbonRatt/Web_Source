@@ -115,6 +115,6 @@ export const singlePostData = {
 
 export const userData = {
   id: 1,
-  name: "Jing Liu (Wife)",
-  img: "https://preview.redd.it/i-want-to-have-sex-with-jingliu-from-honkai-star-rail-v0-wuxs25j18bib1.jpg?auto=webp&s=4e7ebb1c3915b03d09bc3cd4a73aee16fb34da73",
+  name: "CJ",
+  img: "https://i.redd.it/l8chp2r5qe6a1.jpg",
 };

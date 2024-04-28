@@ -43,10 +43,10 @@ const Chat = () => {
           <div className="top">
             <div className="user">
               <img
-                src="https://www.nautiljon.com/images/jeuxvideo_persos/00/14/clorinde_5541.webp"
+                src="https://i.pinimg.com/474x/ed/4b/ae/ed4bae24b5d195525400feb011f246ee.jpg"
                 alt=""
               />
-              Clorinde
+              Big Smoke
             </div>
             <span
               className="close"
