@@ -14,7 +14,7 @@ const port = 8080;
 app.use(
   cors({
     origin: [
-      "https://web-source-client-paileyzmr-ebonratts-projects.vercel.app",
+      "https://web-source-client.vercel.app",
     ],
     method: ["POST", "GET"],
     credentials: true,
