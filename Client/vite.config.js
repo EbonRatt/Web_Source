@@ -8,7 +8,7 @@ dns.setDefaultResultOrder("verbatim");
 export default defineConfig({
   server: {
     proxy: {
-      "/api": "https://web-source-6cju7ubfv-ebonratts-projects.vercel.app",
+      "/api": "https://web-source-api.vercel.app",
     },
     // host: "localhost",
     // port: 8081,
