@@ -28,7 +28,7 @@ function Register() {
 
     // POST to Backend
     try {
-      const res = await Axios.post("/api/auth/register", register);
+      const res = await Axios.post("https://web-source-api.vercel.app/api/auth/register", register);
       navigate("/login");
     } catch (error) {
       setError(error.response.data);
