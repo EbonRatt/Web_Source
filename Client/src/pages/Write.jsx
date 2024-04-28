@@ -38,7 +38,7 @@ function Write() {
             cat: cat,
             img: file ? imgURL : "",
           })
-        : await axios.post("/api/post/", {
+        : await axios.post("https://web-source-api.vercel.app/api/post/", {
             descr: value,
             title: title,
             cat: cat,
