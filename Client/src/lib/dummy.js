@@ -7,8 +7,8 @@ export const listData = [
     bathroom: 1,
     price: 1000,
     address: "456 Park Avenue, London",
-    latitude: 51.5074,
-    longitude: -0.1278,
+    latitude: 11.55918819770993,
+    longitude: 104.91993909301054,
   },
   {
     id: 2,
@@ -18,8 +18,8 @@ export const listData = [
     bathroom: 2,
     price: 1500,
     address: "789 Oxford Street, London",
-    latitude: 52.4862,
-    longitude: -1.8904,
+    latitude: 11.546646521268306,
+    longitude: 104.93807549070853,
   },
   {
     id: 3,
@@ -29,8 +29,8 @@ export const listData = [
     bathroom: 1,
     price: 800,
     address: "101 Baker Street, London",
-    latitude: 53.4808,
-    longitude: -2.2426,
+    latitude: 11.54010681649729,
+    longitude: 104.9127658068991,
   },
   {
     id: 4,
@@ -40,8 +40,8 @@ export const listData = [
     bathroom: 1,
     price: 1000,
     address: "234 Kingsway, London,",
-    latitude: 53.8008,
-    longitude: -1.5491,
+    latitude: 11.548530991527475,
+    longitude: 104.92432633484445,
   },
   {
     id: 5,
@@ -62,8 +62,8 @@ export const listData = [
     bathroom: 1,
     price: 800,
     address: "890 Regent Street, London",
-    latitude: 54.9783,
-    longitude: -1.6174,
+    latitude: 11.572160453858555,
+    longitude: 104.92239550927563,
   },
   {
     id: 7,
@@ -73,8 +73,8 @@ export const listData = [
     bathroom: 1,
     price: 1000,
     address: "112 Piccadilly, London",
-    latitude: 53.3811,
-    longitude: -1.4701,
+    latitude: 11.561397275670457,
+    longitude: 104.91132301047988,
   },
   {
     id: 8,
@@ -84,8 +84,8 @@ export const listData = [
     bathroom: 2,
     price: 1500,
     address: "8765 Main High Street, London",
-    latitude: 51.4545,
-    longitude: -2.5879,
+    latitude: 11.573253975907488,
+    longitude: 104.91085125175462,
   },
 ];
 
