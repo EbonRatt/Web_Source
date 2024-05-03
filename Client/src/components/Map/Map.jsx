@@ -7,7 +7,7 @@ function Map({ items }) {
     <MapContainer
       className="map"
       center={[11.555909086197262, 104.92060742660745]}
-      zoom={11}
+      zoom={13}
       scrollWheelZoom={false}
     >
       <TileLayer
